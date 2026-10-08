@@ -1,0 +1,27 @@
+.page {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 14vw, 8rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: var(--text-h2);
+  margin: 1rem 0 0.5rem;
+}
+
+.message {
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.back {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}

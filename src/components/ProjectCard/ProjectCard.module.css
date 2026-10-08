@@ -1,0 +1,87 @@
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr; /* index column | content column */
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+.card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-faint);
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+
+.body {
+  min-width: 0; /* lets long content wrap instead of overflowing the grid */
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  margin-bottom: 1rem;
+}
+
+.stack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+
+@media (max-width: 480px) {
+  .card {
+    grid-template-columns: 1fr; /* stack the index above the content */
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,35 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* The little status "LED". `currentColor` makes it inherit whatever text color
+   the status class below sets — so we only define the color once. */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.completed {
+  color: var(--status-completed);
+  border-color: color-mix(in srgb, var(--status-completed) 35%, transparent);
+}
+.progress {
+  color: var(--status-progress);
+  border-color: color-mix(in srgb, var(--status-progress) 35%, transparent);
+}
+.archived {
+  color: var(--status-archived);
+  border-color: color-mix(in srgb, var(--status-archived) 35%, transparent);
+}

@@ -1,0 +1,21 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: 4rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.note {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: var(--color-text-faint);
+}

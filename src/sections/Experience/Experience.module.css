@@ -1,0 +1,154 @@
+/* Two columns: the tab rail on the left, the details panel on the right. */
+.tabs {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: 2rem;
+}
+
+.tabList {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* anchor for the absolutely-positioned indicator */
+}
+
+/* The single sliding bar. Its `top`/`height` are MEASURED from the active
+   button in Experience.tsx and set via the inline `style` prop; the transition
+   here is what makes it glide between tabs instead of snapping. */
+.indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  background-color: var(--color-accent);
+  transition:
+    transform 0.25s ease,
+    height 0.25s ease;
+}
+
+/* Strip default button styling so it reads as a tab, not a form button. */
+.tab {
+  appearance: none;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--color-border); /* the rail line */
+  border-radius: 0;
+  text-align: left;
+  padding: 0.6rem 0 0.6rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: var(--color-text-muted);
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+.tab:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+/* The selected tab: just accent TEXT now — the moving .indicator draws the
+   bar, so we no longer recolor this button's own border. */
+.tabActive {
+  color: var(--color-accent);
+}
+.tabActive:hover {
+  color: var(--color-accent);
+}
+
+.tabCompany {
+  font-weight: 600;
+  font-size: var(--text-small);
+}
+
+.panel {
+  min-width: 0; /* allow long text to wrap inside the grid cell */
+  padding-top: 0.25rem;
+  /* Runs every time the panel MOUNTS. Because the JSX gives the panel a
+     key={selectedRole.id}, switching tabs remounts it and replays this. */
+  animation: panelIn 0.25s ease;
+}
+
+/* A subtle fade + slight upward slide. (The global prefers-reduced-motion rule
+   in index.css automatically neutralises this for users who opt out.) */
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Spacing between two roles at the same company (no effect when there's only
+   one). The :not(:first-child) keeps the first role flush with the top. */
+.role:not(:first-child) {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.roleTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.roleMeta {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-text-faint);
+  margin-bottom: 1.1rem;
+}
+
+/* Custom dash bullets in the accent color. */
+.highlights {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+.highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.highlights li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-dim);
+}
+
+/* On narrow screens, put the tabs in a horizontal scrolling row above the
+   panel instead of a vertical rail beside it. */
+@media (max-width: 600px) {
+  .tabs {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .tabList {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  /* The vertical sliding bar doesn't apply to a horizontal row — hide it and
+     fall back to the per-tab bottom border (set on .tabActive below). */
+  .indicator {
+    display: none;
+  }
+  .tab {
+    border-left: none;
+    border-bottom: 2px solid var(--color-border);
+    white-space: nowrap;
+    padding: 0.5rem 0.9rem;
+  }
+  .tabActive {
+    border-bottom-color: var(--color-accent);
+  }
+}

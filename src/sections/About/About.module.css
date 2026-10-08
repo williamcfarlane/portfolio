@@ -1,0 +1,80 @@
+.page {
+  max-width: 64rem;
+}
+
+/* Bio on the left at a readable measure, skills manifest on the right. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 60ch) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.skillsHeading {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+  margin-bottom: 0.9rem;
+}
+
+.manifest {
+  margin: 0;
+}
+
+/* One stack layer per row: mono label on the left, tech on the right. */
+.row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.85rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.layer {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+}
+
+.techs {
+  margin: 0; /* reset the default <dd> indent */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+}
+
+.tech {
+  transition: color 0.15s ease;
+}
+.tech:hover {
+  color: var(--color-accent);
+}
+/* Middot separator drawn in CSS so the data stays just names. */
+.tech:not(:first-child)::before {
+  content: '·';
+  margin-right: 0.5rem;
+  color: var(--color-text-faint);
+}
+
+/* Stack into one column on narrow screens. */
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
