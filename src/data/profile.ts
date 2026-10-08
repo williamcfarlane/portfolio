@@ -31,7 +31,7 @@ export const profile = {
     },
   ],
   links: [
-    { label: 'GitHub', href: 'https://github.com/williammc23' },
+    { label: 'GitHub', href: 'https://github.com/williamcfarlane' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/wmc23/' },
     { label: 'Email', href: 'mailto:mcfarlanewilliam23@gmail.com' },
   ],
