@@ -6,12 +6,10 @@ function Projects() {
   return (
     <section id="projects">
       <h2 className="eyebrow">Projects</h2>
-      <div className={styles.page}>
-        <div className={styles.list}>
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
+      <div className={styles.list}>
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
       </div>
     </section>
   )
