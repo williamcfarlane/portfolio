@@ -15,7 +15,15 @@ export const projects: Project[] = [
     description:
       'The winning entry in an internal competition: an AI player for a 10×7 Connect Four variant, built in Java. Uses Monte Carlo Tree Search to choose moves within a strict 10-second, 2GB-heap budget per turn. Built in collaboration with a colleague.',
     techStack: ['Java', 'Maven'],
-    repoUrl: 'https://github.com/WilliamMcFarlane/connect-n-winning-ai',
+    status: 'completed',
+  },
+  {
+    id: 3,
+    title: 'Quantum Algorithms for Maximum Independent Set',
+    description:
+      'Code from my BSc Physics dissertation at Durham: simulating and comparing adiabatic quantum computing, quantum walks and a hybrid of the two for solving Maximum Independent Set, with the graph encoded as an Ising Hamiltonian. Tidied up in 2026 into a tested Python module, fixing two bugs that changed the results.',
+    techStack: ['Python', 'NumPy', 'SciPy', 'Matplotlib', 'Jupyter'],
+    repoUrl: 'https://github.com/williamcfarlane/Durham-Computing-Project',
     status: 'completed',
   },
   {
