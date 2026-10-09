@@ -7,8 +7,6 @@ interface FadeInSectionProps {
   delay?: string
 }
 
-// Fades its children in (and slides them up) the first time they scroll into
-// view. Pass `delay` to stagger several instances.
 function FadeInSection({ children, delay = '0ms' }: FadeInSectionProps) {
   const [isVisible, setVisible] = useState(false)
   const domRef = useRef<HTMLDivElement>(null)
@@ -21,7 +19,7 @@ function FadeInSection({ children, delay = '0ms' }: FadeInSectionProps) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setVisible(true)
-          observer.unobserve(entry.target) // reveal once, then stop watching
+          observer.unobserve(entry.target)
         }
       })
     })

@@ -10,11 +10,8 @@ function Experience() {
   const selectedCompany =
     experiences.find((company) => company.id === selectedId) ?? experiences[0]
 
-  // One DOM handle per tab button, keyed by company id, so the effect can
-  // measure the active button. A ref avoids re-renders on change.
   const tabRefs = useRef<Record<number, HTMLButtonElement | null>>({})
 
-  // Measured position + height of the sliding indicator bar.
   const [indicator, setIndicator] = useState({ top: 0, height: 0 })
 
   const tabListRef = useRef<HTMLDivElement>(null)
@@ -115,8 +112,7 @@ function Experience() {
               <h3 className={styles.roleTitle}>{role.title}</h3>
               <p className={styles.roleMeta}>{role.period}</p>
               <ul className={styles.highlights}>
-                {/* FadeInSection renders a div, so it must sit INSIDE the li —
-                    a ul's only valid children are li elements. */}
+                {/* FadeInSection renders a div, so it goes inside the li. */}
                 {role.highlights.map((highlight, i) => (
                   <li key={i}>
                     <FadeInSection delay={`${(i + 1) * 100}ms`}>

@@ -1,5 +1,3 @@
-/* Hidden state: invisible and nudged down a little. The transition-delay is
-   set per-instance via the inline `style` prop, so staggering just works. */
 .fade {
   opacity: 0;
   transform: translateY(18px);
@@ -8,7 +6,6 @@
     transform 0.6s ease-out;
 }
 
-/* Added once the element scrolls into view. */
 .visible {
   opacity: 1;
   transform: translateY(0);

@@ -1,7 +1,3 @@
-// Inline SVG brand icons. fill="currentColor" lets them inherit the parent
-// link's text color so hover states work via CSS. aria-hidden because the
-// accessible name comes from the parent link's aria-label.
-
 export function GithubIcon() {
   return (
     <svg

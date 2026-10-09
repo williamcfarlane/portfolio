@@ -4,7 +4,6 @@ import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
   project: Project
-  /** Position in the list, used for the card's display number. */
   index: number
 }
 

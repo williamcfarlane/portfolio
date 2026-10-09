@@ -8,7 +8,6 @@ const navItems = [
   { href: '#projects', label: 'projects' },
 ]
 
-// Maps a profile-link label to its icon. Only labels listed here get an icon.
 const socialIcons = {
   GitHub: GithubIcon,
   LinkedIn: LinkedinIcon,

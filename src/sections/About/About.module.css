@@ -2,7 +2,6 @@
   max-width: 64rem;
 }
 
-/* Bio on the left at a readable measure, skills manifest on the right. */
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 60ch) 1fr;
@@ -31,7 +30,6 @@
   margin: 0;
 }
 
-/* One stack layer per row: mono label on the left, tech on the right. */
 .row {
   display: grid;
   grid-template-columns: 6rem 1fr;
@@ -49,7 +47,7 @@
 }
 
 .techs {
-  margin: 0; /* reset the default <dd> indent */
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0 0.5rem;
@@ -58,14 +56,12 @@
   color: var(--color-text-muted);
 }
 
-/* Middot separator drawn in CSS so the data stays just names. */
 .tech:not(:first-child)::before {
   content: '·';
   margin-right: 0.5rem;
   color: var(--color-text-faint);
 }
 
-/* Stack into one column on narrow screens. */
 @media (max-width: 700px) {
   .layout {
     grid-template-columns: 1fr;

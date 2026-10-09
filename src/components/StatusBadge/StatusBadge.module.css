@@ -12,8 +12,6 @@
   white-space: nowrap;
 }
 
-/* The little status "LED". `currentColor` makes it inherit whatever text color
-   the status class below sets — so we only define the color once. */
 .dot {
   width: 7px;
   height: 7px;

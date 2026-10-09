@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-columns: auto 1fr; /* index column | content column */
+  grid-template-columns: auto 1fr;
   gap: 1.25rem;
   padding: 1.5rem;
   background-color: var(--color-surface);
@@ -75,7 +75,7 @@
 
 @media (max-width: 480px) {
   .card {
-    grid-template-columns: 1fr; /* stack the index above the content */
+    grid-template-columns: 1fr;
     gap: 0.5rem;
     padding: 1.25rem;
   }

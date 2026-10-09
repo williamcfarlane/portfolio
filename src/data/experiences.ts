@@ -1,12 +1,9 @@
-// A single position. Period + highlights live on the role, since a company
-// can have several (e.g. after a promotion).
 export interface Role {
   title: string
   period: string
   highlights: string[]
 }
 
-// One company and the roles held there (newest first).
 export interface Experience {
   id: number
   company: string

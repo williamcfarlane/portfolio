@@ -1,11 +1,9 @@
 .page {
   display: flex;
   flex-direction: column;
-  /* Space between the stacked sections. */
   gap: clamp(5rem, 12vh, 10rem);
 }
 
-/* --- Hero ----------------------------------------------------------------- */
 .hero {
   padding: 2rem 0 1rem;
   display: flex;
@@ -14,16 +12,13 @@
   text-align: center;
 }
 
-/* Blinking caret at the end of the headline — a terminal touch. Sized in `em`
-   so it scales with the headline; reduced-motion users get it via the global
-   rule in index.css. */
 .cursor {
   display: inline-block;
   width: 0.55rem;
   height: 0.75em;
   margin-left: 0.12em;
   background-color: var(--color-accent);
-  vertical-align: baseline; /* sit on the text baseline, not below it */
+  vertical-align: baseline;
   animation: blink 1.1s steps(1) infinite;
 }
 @keyframes blink {
@@ -44,14 +39,12 @@
   margin-bottom: 2rem;
 }
 
-/* Action buttons under the hero intro. */
 .actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-/* "Click to contact me" button under the hero intro. */
 .contactBtn {
   display: inline-flex;
   align-items: center;
@@ -62,14 +55,13 @@
   padding: 0.7rem 1.3rem;
   border-radius: var(--radius-sm);
   background-color: var(--color-accent);
-  color: #1a1205; /* dark text on the bright accent for contrast */
+  color: #1a1205;
   transition: background-color 0.15s ease;
 }
 .contactBtn:hover {
   background-color: var(--color-accent-dim);
   color: #1a1205;
 }
-/* Size the icon relative to the button text. */
 .contactBtn svg {
   width: 1.15em;
   height: 1.15em;

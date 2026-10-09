@@ -1,49 +1,35 @@
-/* Global styles + design tokens. The only non-module stylesheet, loaded once
-   in main.tsx. Direction: "instrument panel" — a layered dark UI with a single
-   signal-amber accent and monospace type reserved for code-like metadata. */
-
 :root {
-  /* --- Color: layered ink, not flat black ------------------------------- */
-  --color-bg: #0d0f13; /* page background (deepest layer)          */
-  --color-surface: #15181f; /* cards / panels sit one layer up          */
-  --color-surface-2: #1c2029; /* hover / nested panels                    */
-  --color-border: #272c38; /* hairline dividers                        */
+  --color-bg: #0d0f13;
+  --color-surface: #15181f;
+  --color-surface-2: #1c2029;
+  --color-border: #272c38;
   --color-border-strong: #353b4a;
 
-  /* Text steps from bright to faint — use the right one for hierarchy. */
-  --color-text: #eceef2; /* primary text                             */
-  --color-text-muted: #909aab; /* secondary text, descriptions             */
-  --color-text-faint: #5d6675; /* labels, captions, the quietest text      */
+  --color-text: #eceef2;
+  --color-text-muted: #909aab;
+  --color-text-faint: #5d6675;
 
-  /* The single accent. Spend it sparingly — that is what makes it read as
-     a signal rather than decoration. */
   --color-accent: #ffb454;
   --color-accent-dim: #c98a3f;
 
-  /* Status colors. These are MEANINGFUL: each maps to a real project state,
-     so the color is information, not decoration. */
-  --status-completed: #4ec9a5; /* teal-green */
-  --status-progress: #ffb454; /* amber (same as accent) */
-  --status-archived: #6b7280; /* grey */
+  --status-completed: #4ec9a5;
+  --status-progress: #ffb454;
+  --status-archived: #6b7280;
 
-  /* --- Type: IBM Plex family (loaded in index.html) --------------------- */
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  /* A small, deliberate type scale; clamp() keeps sizes fluid within bounds. */
   --text-display: clamp(2.4rem, 6vw, 4rem);
   --text-h2: clamp(1.5rem, 3vw, 2rem);
   --text-body: 1rem;
   --text-small: 0.875rem;
-  --text-label: 0.75rem; /* mono labels / eyebrows */
+  --text-label: 0.75rem;
 
-  /* --- Spacing & sizing scale ------------------------------------------- */
   --radius: 8px;
   --radius-sm: 5px;
   --max-width: 1040px;
-  --gutter: clamp(1.25rem, 4vw, 2.5rem); /* page side padding */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 
-  /* Base typography for the whole document. */
   font-family: var(--font-sans);
   line-height: 1.6;
   color: var(--color-text);
@@ -52,7 +38,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* A modern, gentle reset. */
 *,
 *::before,
 *::after {
@@ -60,8 +45,6 @@
   margin: 0;
 }
 
-/* Animate jumps to #anchor links (the navbar) instead of snapping. The global
-   prefers-reduced-motion block below already turns this off for opt-out users. */
 html {
   scroll-behavior: smooth;
 }
@@ -70,8 +53,7 @@ body {
   min-height: 100dvh;
 }
 
-/* Any section the navbar links to: leave room for the sticky navbar so its
-   heading isn't hidden underneath when you scroll to it. */
+/* Stops section headings hiding under the sticky navbar. */
 section[id] {
   scroll-margin-top: 5rem;
 }
@@ -89,10 +71,9 @@ h2,
 h3 {
   line-height: 1.15;
   font-weight: 600;
-  letter-spacing: -0.02em; /* tighten large headings slightly */
+  letter-spacing: -0.02em;
 }
 
-/* Section heading used by About / Experience / Projects. */
 .eyebrow {
   font-size: var(--text-h2);
   margin-bottom: 1.5rem;
@@ -103,16 +84,12 @@ img {
   display: block;
 }
 
-/* Quality floor: a visible focus ring for keyboard users on every focusable
-   element. Never remove this without replacing it — it is how keyboard and
-   screen-reader users see where they are. */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Quality floor: respect users who asked their OS to reduce motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
