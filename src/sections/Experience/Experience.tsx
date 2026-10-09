@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import FadeInSection from '../../components/FadeInSection/FadeInSection'
 import { experiences } from '../../data/experiences'
 import styles from './Experience.module.css'
@@ -17,9 +17,13 @@ function Experience() {
   // Measured position + height of the sliding indicator bar.
   const [indicator, setIndicator] = useState({ top: 0, height: 0 })
 
-  // Re-measure when the selected tab changes, and on window resize — layout
-  // shifts (wrapping, breakpoints) move the buttons without touching state.
-  useEffect(() => {
+  const tabListRef = useRef<HTMLDivElement>(null)
+
+  // Also re-measures when the web font loads and shifts the tabs.
+  useLayoutEffect(() => {
+    const tabList = tabListRef.current
+    if (!tabList) return
+
     const measure = () => {
       const node = tabRefs.current[selectedId]
       if (node) {
@@ -27,8 +31,9 @@ function Experience() {
       }
     }
     measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
+    const observer = new ResizeObserver(measure)
+    observer.observe(tabList)
+    return () => observer.disconnect()
   }, [selectedId])
 
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
@@ -57,6 +62,7 @@ function Experience() {
 
       <div className={styles.tabs}>
         <div
+          ref={tabListRef}
           className={styles.tabList}
           role="tablist"
           aria-label="Companies"
