@@ -37,7 +37,7 @@ export const experiences: Experience[] = [
         title: 'Software Engineer',
         period: 'Sep. 2025 - Aug. 2026',
         highlights: [
-          'Develop Java/Spring Boot middleware for a multi-brand sports-betting platform, serving real-time betting data through a GraphQL API backed by MySQL.',
+          'Developed Java/Spring Boot middleware for a multi-brand sports-betting platform, serving real-time betting data through a GraphQL API backed by MySQL.',
           'Led delivery of the Outrights betting feature two months after joining, owning the technical design and cross-team execution for markets that account for 30% of sportsbook betting activity.',
           "Designed and built a cold-storage service that preserves ~100,000 transaction records a day after upstream deletion - restoring users' full bet history, with engagement on that page up 25% after launch.",
           "Rebuilt the platform's highest-traffic listing endpoint with cursor pagination and a Caffeine cache, cutting average page load from 1.4s to 400ms and MySQL row reads by 90%.",

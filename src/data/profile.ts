@@ -4,7 +4,7 @@ export const profile = {
   intro: 'software engineer based in London',
   bio: [
     "I'm a software engineer working on the backend of large consumer platforms, currently real-time merchant risk infrastructure at Checkout.com, and before that sports-betting services at Bally's Interactive and the marketplace integrations behind THG brands like LookFantastic and MyProtein.",
-    "I got here via a Physics degree at Durham, where my dissertation benchmarked quantum optimisation algorithms in Python. I'm drawn towards interesting problems and understanding the complexeties behind them, always eager to learn and just trying to have fun along the way :)",
+    "I got here via a Physics degree at Durham, where my dissertation benchmarked quantum optimisation algorithms in Python. I'm drawn towards interesting problems and understanding the complexities behind them, always eager to learn and just trying to have fun along the way :)",
   ],
   // Tech grouped by stack layer, shown as a manifest in the About section.
   skills: [
