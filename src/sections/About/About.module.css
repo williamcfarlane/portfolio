@@ -58,12 +58,6 @@
   color: var(--color-text-muted);
 }
 
-.tech {
-  transition: color 0.15s ease;
-}
-.tech:hover {
-  color: var(--color-accent);
-}
 /* Middot separator drawn in CSS so the data stays just names. */
 .tech:not(:first-child)::before {
   content: '·';
