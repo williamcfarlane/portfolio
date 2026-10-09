@@ -32,6 +32,7 @@ export const projects: Project[] = [
     description:
       'The React + TypeScript site you are looking at right now. Built to learn frontend development.',
     techStack: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+    repoUrl: 'https://github.com/williamcfarlane/portfolio',
     status: 'in-progress',
   },
 ]
