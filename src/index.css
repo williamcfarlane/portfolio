@@ -67,7 +67,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Any section the navbar links to: leave room for the sticky navbar so its
